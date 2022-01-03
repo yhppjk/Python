@@ -9,17 +9,17 @@ ChartGirouette : ChartPlot = None
 PeakVitesse    : PeakPlot  = None
 
 def GUIUpdate(root, w, EMes, PMes, ErMes):
-    global GraphHumidite, ChartGirouette
-    
+    global GraphHumidite, ChartGirouette, PeakVitesse
+
     # create three graphs on GUI at the first call
     if GraphHumidite  == None: GraphHumidite  = GraphPlot(root, w.EGraphHumidite)
     if ChartGirouette == None: ChartGirouette = ChartPlot(root, w.EChartGirouette, 100)
-   #if PeakVitesse    == None: PeakVitesse    = PeakPlot (root, w.PPeakVitesse,    100)  ===ToDo===
-    
+    #if PeakVitesse    == None: PeakVitesse    = PeakPlot (root, w.PPeakVitesse,    100)  #===ToDo===
+
     # ===ToDo===  fullfill PeakPlot class in hlpGUIGraph.py and create PPeakVitesse canvas on GUI
     #
     #if PeakVitesse    == None: PeakVitesse    = PeakPlot (root, w.PPeakVitesse,    100)
-    
+
     # update electrical measures
     w.EHumidimetre  ["text"]  = "{:.0f} Hz".format(EMes.Humidimetre)
     w.EGirouette    ["text"]  = "{:.3f} V" .format(EMes.Girouette)
@@ -34,6 +34,8 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
 
     # ===ToDo=== set Encodeur boolean indicators (background color value : light if bit true, dark else)
     #
+    #w.EVitesse ["text"] = "{:.0f} m/s".format(EMes.Vitesse)
+
     # w.EP1_0["bg"] =                  use this model   : x = ValTrue  if (condition)  else ValFalse
     # w.EP1_1["bg"] =
     # w.EP1_2["bg"] =                  use named colors : https://matplotlib.org/stable/gallery/color/named_colors.html
@@ -41,14 +43,14 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
 
     GraphHumidite.Plot (EMes.HumidimetreAX, EMes.HumidimetreAY)
     ChartGirouette.Plot(EMes.Girouette)
-    
+
     # update physical measures
     #
     # ===ToDo=== copy physical measures to indicators
     #
     # w.PDirection    ["text"]  =      use "format" function as electrical measures
     # w.PVitesse      ["text"]  =
-    # w.PTemperature  ["text"]  =      
+    # w.PTemperature  ["text"]  =
     # w.PHumidite     ["text"]  =
     # w.PLuminosite   ["text"]  =
     # w.PPluviometrie ["text"]  =

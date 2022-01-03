@@ -45,6 +45,7 @@ class ChartPlot:
         self.subplot.set(ylabel="Volts", autoscalex_on=False, xlim=(0, self.nbpoints), autoscaley_on=False, ylim=(-0.1, 5.2))
         self.canvas.draw()
 
+
 #-----------------------------------------------------------------------------------------------------------------------
 # ===ToDo===  fullfill this class
 def PeakDetect(Values, Delta):

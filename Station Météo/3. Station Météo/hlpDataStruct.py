@@ -4,7 +4,7 @@
 
 class ElectricalMeasures:
     # ===ToDo===  add a flag to Reset Pluviometre
-    # 
+    #
     # set by MainWindow_support\GUIDisplay\BtnReset-event - used by hlpDataMeasure\FastRead
 
     Humidimetre   : float = 0
@@ -36,7 +36,7 @@ class ErrorMeasures:
     ErrorCode         = 0
     ErrorType         = ""
     ErrorMessage      = ""
-    
+
 EMes  = ElectricalMeasures()
 PMes  = PhysicalMeasures()
 ErMes = ErrorMeasures()
