@@ -44,7 +44,7 @@ def TimedLoopFast():
     pc.ConvertToPhysical(dm.EMes)
 
     dm.EMes.DureeMesures = (time.perf_counter()-t0) * 1000   # time in milliseconds
-    dm.EMes.Pluviometre =
+
 
     MainWindow_support.EMes  = dm.EMes
     MainWindow_support.ErMes = dm.ErMes
