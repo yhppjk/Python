@@ -6,33 +6,32 @@ from hlpDataStruct import ElectricalMeasures, PhysicalMeasures
 from hlpDataMeasure import DataMeasure
 
 class PhysicalConversions:
-    global dm
     PMes = PhysicalMeasures()
-    dm = DataMeasure()
+
     def ConvertToPhysical(self, EMes:ElectricalMeasures):
         #
         # ===ToDo===
         #
         # convert EMes.Girouette    Voltage  to integer position    (0 to 7)
-        dm.FastRead()
-        if(self.EMes.Girouette < 3.8 and self.EMes.Girouette > 3.3): self.PMes.Direction    = "North"         #North
-        if(self.EMes.Girouette < 2.3 and self.EMes.Girouette > 2): self.PMes.Direction    = "Northeast"         #Northeast
+        if(EMes.Girouette < 3.8 and EMes.Girouette > 3.3): self.PMes.Direction    = "north"         #North
+        if(EMes.Girouette < 2.3 and EMes.Girouette > 2): self.PMes.Direction    = 1         #Northeast
 
-        if(self.EMes.Girouette < 0.48 and self.EMes.Girouette > 0.33): self.PMes.Direction    = "east"         #east
-        if(self.EMes.Girouette < 0.92 and self.EMes.Girouette > 0.6): self.PMes.Direction    = "Southeast"         #Southeast
+        if(EMes.Girouette < 0.48 and EMes.Girouette > 0.33): self.PMes.Direction    = 2         #east
+        if(EMes.Girouette < 0.92 and EMes.Girouette > 0.6): self.PMes.Direction    = 3         #Southeast
 
 
-        if(self.EMes.Girouette < 1.43 and self.EMes.Girouette > 1.2): self.PMes.Direction    = "South"        #South
-        if(self.EMes.Girouette < 3.1 and self.EMes.Girouette > 2.9): self.PMes.Direction    = "SouthWest"        #SouthWest
+        if(EMes.Girouette < 1.43 and EMes.Girouette > 1.2): self.PMes.Direction    = 4        #South
+        if(EMes.Girouette < 3.1 and EMes.Girouette > 2.9): self.PMes.Direction    = 5        #SouthWest
 
-        if(self.EMes.Girouette  > 4.4): self.PMes.Direction    = "West"         #West
-        if(self.EMes.Girouette < 4.2 and self.EMes.Girouette > 3.8): self.PMes.Direction    = "Northwest"        #Northwest
-
+        if(EMes.Girouette  > 4.4): EMes.Direction    = 7         #West
+        if(EMes.Girouette < 4.2 and EMes.Girouette > 3.8): self.PMes.Direction    = 6        #Northwest
 
 
 
 
-        #self.PMes.Direction    = "North"
+
+
+        self.PMes.Direction    = "North"
         self.PMes.Station      = 0   # convert EMes.Encodeur     GrayCode to integer position    (0 to 15)
         self.PMes.Humidite     = 0   # convert EMes.Humidimetre  25Hz : 100% / 100Hz : 0%        (constraint in the range 0-100)
         self.PMes.Temperature  = 0   # convert EMes.Thermometre  °C = (Vcapteur x 100) - 273,15
