@@ -122,7 +122,7 @@ class DataMeasure:
             self.PrevPluv = b
 
             # ===ToDo===   reset EMes.Pluviometre if BtnReset pressed
-
+            if (): self.EMes.Pluviometre = 0
             #...........................................................................................................
             if self.nTask == None: raise(nidaqmx.DaqError("Task doesn't exist", -200088, "iNtegerTask"))
 
