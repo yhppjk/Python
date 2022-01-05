@@ -2,9 +2,12 @@
 # Weather Station Project - hlpDataStruct - Helper Data Exchange Model-Controller                               JYC-2021
 #-----------------------------------------------------------------------------------------------------------------------
 
+from tkinter.constants import CHAR
+
+
 class ElectricalMeasures:
     # ===ToDo===  add a flag to Reset Pluviometre
-    # 
+    #
     # set by MainWindow_support\GUIDisplay\BtnReset-event - used by hlpDataMeasure\FastRead
 
     Humidimetre   : float = 0
@@ -21,7 +24,7 @@ class ElectricalMeasures:
     TempsBoucleL  : int   = 0
 
 class PhysicalMeasures:
-    Direction    : int   = 0
+    Direction    : str = "0"
     Vitesse      : float = 0
     Temperature  : float = 0
     Luminosite   : float = 0
@@ -36,7 +39,7 @@ class ErrorMeasures:
     ErrorCode         = 0
     ErrorType         = ""
     ErrorMessage      = ""
-    
+
 EMes  = ElectricalMeasures()
 PMes  = PhysicalMeasures()
 ErMes = ErrorMeasures()
