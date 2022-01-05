@@ -48,7 +48,7 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
     # ===ToDo=== copy physical measures to indicators
     #
     # use "format" function as electrical measures
-    w.PDirection    ["text"]  ="{:} ".format(PMes.Direction)
+    w.PDirection    ["text"]  ="{:.0f} ".format(PMes.Direction)
     w.PVitesse      ["text"]  ="{:.0f} ".format(PMes.Vitesse)
     w.PTemperature  ["text"]  ="{:.0f} ".format(PMes.Temperature)
     w.PHumidite     ["text"]  ="{:.0f} ".format(PMes.Humidite)
