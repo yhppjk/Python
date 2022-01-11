@@ -14,6 +14,7 @@
 
 import nidaqmx
 import nidaqmx.system
+import MainWindow_support
 
 from nidaqmx.task import Task
 from hlpDataStruct import ElectricalMeasures, ErrorMeasures
@@ -95,7 +96,7 @@ class DataMeasure:
     #-------------------------------------------------------------------------------------------------------------------
     def FastRead(self):
         from statistics import mean
-        import MainWindow_support
+
 
         try:
             #...........................................................................................................

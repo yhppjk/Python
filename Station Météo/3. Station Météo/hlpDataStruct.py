@@ -2,7 +2,7 @@
 # Weather Station Project - hlpDataStruct - Helper Data Exchange Model-Controller                               JYC-2021
 #-----------------------------------------------------------------------------------------------------------------------
 
-from tkinter import BooleanVar
+
 from tkinter.constants import CHAR
 
 

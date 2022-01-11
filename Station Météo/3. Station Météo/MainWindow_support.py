@@ -1,7 +1,6 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 
-BtnReset = False
 #-- Custom part ----------------------------------
 from hlpDataStruct import EMes, PMes, ErMes
 import hlpGUIUpdate
