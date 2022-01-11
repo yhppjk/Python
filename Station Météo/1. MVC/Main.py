@@ -6,7 +6,7 @@ import nidaqmx
 from nidaqmx.constants import Edge, TerminalConfiguration, AcquisitionType, LineGrouping
 
 def DAQmxOpen():
-    global bTask, bPrevRead   
+    global bTask, bPrevRead
 
     MainWindow_support.GUIBtnReset = False
     MainWindow_support.GUINum      = 0
@@ -23,7 +23,7 @@ def DAQmxOpen():
 
 def DAQmxRead():
     global bPrevRead
-    
+
     if MainWindow_support.GUIBtnReset:                                 # reset <Num> if button-reset pressed
         MainWindow_support.GUIBtnReset = False
         MainWindow_support.GUINum      = 0

@@ -59,6 +59,8 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
     # create the "clamp" function to constraint data into limits
     #
 
+    # def clamp(value,min,max):
+    #     self
 
     # w.PBVitesse      ["value"] = clamp(int(PMes.Vitesse),      0, 30)
     # w.PBTemperature  ["value"] = clamp(int(PMes.Temperature),  0, 50)

@@ -1,14 +1,18 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 
+
 BtnReset = False
 #-- Custom part ----------------------------------
 from hlpDataStruct import EMes, PMes, ErMes
 import hlpGUIUpdate
 
+
 def GUIBtnReset(p1):
-    global EMes
-    EMes.BtnReset = True
+    global BtnReset
+    BtnReset = True
+
+
 
 def GUIDisplay():
     global root, w, EMes, PMes, ErMes
@@ -43,8 +47,4 @@ def destroy_window():
 if __name__ == '__main__':
     import MainWindow
     MainWindow.vp_start_gui()
-
-
-
-
 

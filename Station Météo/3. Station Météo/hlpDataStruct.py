@@ -2,6 +2,7 @@
 # Weather Station Project - hlpDataStruct - Helper Data Exchange Model-Controller                               JYC-2021
 #-----------------------------------------------------------------------------------------------------------------------
 
+from tkinter import BooleanVar
 from tkinter.constants import CHAR
 
 
@@ -22,6 +23,7 @@ class ElectricalMeasures:
     DureeMesures  : int   = 0
     TempsBoucleR  : int   = 0
     TempsBoucleL  : int   = 0
+    BtnReset : bool = False
 
 class PhysicalMeasures:
     Direction    : str = "0"

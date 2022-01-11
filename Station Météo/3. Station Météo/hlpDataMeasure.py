@@ -95,7 +95,7 @@ class DataMeasure:
     #-------------------------------------------------------------------------------------------------------------------
     def FastRead(self):
         from statistics import mean
-        global DataMeasure
+        import MainWindow_support
 
         try:
             #...........................................................................................................
@@ -116,14 +116,18 @@ class DataMeasure:
             #...........................................................................................................
             if self.bTask == None: raise(nidaqmx.DaqError("Task doesn't exist", -200088, "BitTask"))
 
-            b = self.bTask.read()
-            self.bTask.wait_until_done()
 
-            if (self.PrevPluv and (not b)) : self.EMes.Pluviometre += 1  # +1 if falling edge (1 --> 0)
-            self.PrevPluv = b
 
             # ===ToDo===   reset EMes.Pluviometre if BtnReset pressed
-            # if ( = True) :  self.EMes.Pluviometre = 0
+            if MainWindow_support.BtnReset :
+                MainWindow_support.BtnReset = False
+                self.EMes.Pluviometre=0
+            else:
+                b = self.bTask.read()
+                self.bTask.wait_until_done()
+                if (self.PrevPluv and (not b)) : self.EMes.Pluviometre += 1  # +1 if falling edge (1 --> 0)
+                self.PrevPluv = b
+
 
             #...........................................................................................................
             if self.nTask == None: raise(nidaqmx.DaqError("Task doesn't exist", -200088, "iNtegerTask"))
