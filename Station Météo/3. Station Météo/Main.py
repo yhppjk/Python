@@ -36,6 +36,9 @@ def TimedLoopFast():
     PrevLoopFTime        = t0
 
     # ===ToDo===  copy pluviometre reset flag from  MainWindow_support.EMes  to  dm.EMes
+    
+
+
     dm.FastRead()
     fcode = dm.ErMes.CurrentCode
 

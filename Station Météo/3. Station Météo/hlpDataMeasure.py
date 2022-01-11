@@ -31,7 +31,7 @@ class DataMeasure:
 
     ErMes = ErrorMeasures()
     EMes  = ElectricalMeasures()
-    
+
     #-------------------------------------------------------------------------------------------------------------------
     def __init__(self):
         self.EMes.HumidimetreAX = [0.0] * self.NbSamples
@@ -51,7 +51,7 @@ class DataMeasure:
         self.ErMes.ErrorCode         = e.error_code
         self.ErMes.ErrorType         = e.error_type
         self.ErMes.ErrorMessage      = e.__str__().replace('\n', '  ')
-        
+
     #-------------------------------------------------------------------------------------------------------------------
     def ClearError(self):
         self.ErMes.CurrentCode       = 0
@@ -95,19 +95,20 @@ class DataMeasure:
     #-------------------------------------------------------------------------------------------------------------------
     def FastRead(self):
         from statistics import mean
+        global DataMeasure
 
         try:
             #...........................................................................................................
             if self.wTask == None: raise(nidaqmx.DaqError("Task doesn't exist", -200088, "WaveformTask"))
-            
+
             Samples = self.wTask.read(number_of_samples_per_channel=self.NbSamples)
             self.wTask.wait_until_done()
-            
+
             ew = self.GetEdgesWidth(trigger=2, data=Samples[0])
             if ew > 0: self.EMes.Humidimetre = self.RateTiming / ew
 
             self.EMes.HumidimetreAY = Samples[0]
-            
+
             self.EMes.Girouette   = mean(Samples[1])
             self.EMes.Thermometre = mean(Samples[2])
             self.EMes.Luxmetre    = mean(Samples[3])
@@ -122,7 +123,8 @@ class DataMeasure:
             self.PrevPluv = b
 
             # ===ToDo===   reset EMes.Pluviometre if BtnReset pressed
-            
+            # if ( = True) :  self.EMes.Pluviometre = 0
+
             #...........................................................................................................
             if self.nTask == None: raise(nidaqmx.DaqError("Task doesn't exist", -200088, "iNtegerTask"))
 
@@ -146,7 +148,7 @@ class DataMeasure:
             self.ErMes.CurrentCode = 0
         except nidaqmx.DaqError as e:
             self.RegError(e)
-        
+
     #-------------------------------------------------------------------------------------------------------------------
     def Close(self):
         try:
