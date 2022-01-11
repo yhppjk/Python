@@ -530,7 +530,7 @@ class MainWindow:
         self.DirectVent.configure(width=80)
 
         self.PDirection = tk.Label(self.MesureP)
-        self.PDirection.place(relx=0.141, rely=0.074, height=21, width=54
+        self.PDirection.place(relx=0.141, rely=0.074, height=21, width=100
                 , bordermode='ignore')
         self.PDirection.configure(activebackground="#f9f9f9")
         self.PDirection.configure(activeforeground="black")
@@ -720,8 +720,8 @@ class MainWindow:
         self.PluviReset.configure(pady="0")
         self.PluviReset.configure(text='''Reset Pluviometre''')
 
-        self.BVVent = ttk.Progressbar(self.MesureP)
-        self.BVVent.place(relx=0.254, rely=0.173, relwidth=0.141, relheight=0.0
+        self.PBVitesse = ttk.Progressbar(self.MesureP)
+        self.PBVitesse.place(relx=0.254, rely=0.173, relwidth=0.141, relheight=0.0
                 , height=22, bordermode='ignore')
 
         self.BTemp = ttk.Progressbar(self.MesureP)
