@@ -36,5 +36,6 @@ class PhysicalConversions:
         self.PMes.Humidite     = (100-EMes.Humidimetre)/75   # convert EMes.Humidimetre  25Hz : 100% / 100Hz : 0%        (constraint in the range 0-100)
         self.PMes.Temperature  = (EMes.Thermometre *100)-273.15  # convert EMes.Thermometre  °C = (Vcapteur x 100) - 273,15
         self.PMes.Luminosite   = (4.8- EMes.Luxmetre )*150000/4.8   # convert EMes.Luxmetre     4,8V : 0 lux / 0V : 150000 lux  (constraint in the range 0-150000)
+
         self.PMes.Pluviometrie = EMes.Pluviometre * 0.2794   # convert EMes.Pluviometre  1 imp. = 0,2794mm
         self.PMes.Vitesse      = EMes.Anemometre * 2.4   # convert EMes.Anemometre   1 imp./s = 2,4km/h

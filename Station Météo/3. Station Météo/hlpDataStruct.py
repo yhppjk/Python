@@ -17,7 +17,7 @@ class ElectricalMeasures:
     Girouette     : float = 0
     Thermometre   : float = 0
     Luxmetre      : float = 0
-    Pluviometre   : int   = 0
+    Pluviometre   : int   = 50
     Encodeur      : int   = 0
     Anemometre    : int   = 0
     DureeMesures  : int   = 0

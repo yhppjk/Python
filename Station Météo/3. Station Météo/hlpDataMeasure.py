@@ -121,7 +121,7 @@ class DataMeasure:
 
             # ===ToDo===   reset EMes.Pluviometre if BtnReset pressed
             if MainWindow_support.BtnReset :
-                MainWindow_support.BtnReset = False
+                MainWindow_support.BtnReset = True
                 self.EMes.Pluviometre=0
             else:
                 b = self.bTask.read()
