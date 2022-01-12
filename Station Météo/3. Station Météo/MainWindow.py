@@ -727,16 +727,16 @@ class MainWindow:
         self.BPluvi.place(relx=0.254, rely=0.568, relwidth=0.141, relheight=0.0
                 , height=22, bordermode='ignore')
 
-        self.EChartPeak = tk.Canvas(self.MesureP)
-        self.EChartPeak.place(relx=0.423, rely=0.074, relheight=0.501
+        self.PPeakVitesse = tk.Canvas(self.MesureP)
+        self.PPeakVitesse.place(relx=0.423, rely=0.074, relheight=0.501
                 , relwidth=0.554, bordermode='ignore')
-        self.EChartPeak.configure(background="#ffffff")
-        self.EChartPeak.configure(borderwidth="2")
-        self.EChartPeak.configure(highlightbackground="#d9d9d9")
-        self.EChartPeak.configure(highlightcolor="black")
-        self.EChartPeak.configure(insertbackground="black")
-        self.EChartPeak.configure(selectbackground="blue")
-        self.EChartPeak.configure(selectforeground="white")
+        self.PPeakVitesse.configure(background="#ffffff")
+        self.PPeakVitesse.configure(borderwidth="2")
+        self.PPeakVitesse.configure(highlightbackground="#d9d9d9")
+        self.PPeakVitesse.configure(highlightcolor="black")
+        self.PPeakVitesse.configure(insertbackground="black")
+        self.PPeakVitesse.configure(selectbackground="blue")
+        self.PPeakVitesse.configure(selectforeground="white")
 
         self.TextPeak = tk.Text(self.MesureP)
         self.TextPeak.place(relx=0.423, rely=0.593, relheight=0.38

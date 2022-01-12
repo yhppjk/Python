@@ -32,6 +32,7 @@ class PhysicalMeasures:
     Humidite     : float = 0
     Pluviometrie : float = 0
     Station      : int   = 0
+    PeakVitesse : int = 0
 
 class ErrorMeasures:
     CurrentCode       = 0

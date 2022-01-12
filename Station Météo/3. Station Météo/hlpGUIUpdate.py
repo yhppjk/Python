@@ -9,12 +9,12 @@ ChartGirouette : ChartPlot = None
 PeakVitesse    : PeakPlot  = None
 
 def GUIUpdate(root, w, EMes, PMes, ErMes):
-    global GraphHumidite, ChartGirouette
+    global GraphHumidite, ChartGirouette,PeakVitesse
 
     # create three graphs on GUI at the first call
     if GraphHumidite  == None: GraphHumidite  = GraphPlot(root, w.EGraphHumidite)
     if ChartGirouette == None: ChartGirouette = ChartPlot(root, w.EChartGirouette, 100)
-   #if PeakVitesse    == None: PeakVitesse    = PeakPlot (root, w.PPeakVitesse,    100)  ===ToDo===
+    if PeakVitesse    == None: PeakVitesse    = PeakPlot (root, w.PPeakVitesse,    100)
 
     # ===ToDo===  fullfill PeakPlot class in hlpGUIGraph.py and create PPeakVitesse canvas on GUI
     #
@@ -42,6 +42,10 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
 
     GraphHumidite.Plot (EMes.HumidimetreAX, EMes.HumidimetreAY)
     ChartGirouette.Plot(EMes.Girouette)
+    PeakVitesse.Plot(PMes.Vitesse)
+    
+
+
 
     # update physical measures
     #
@@ -55,6 +59,8 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
     w.PLuminosite   ["text"]  ="{:.0f} ".format(PMes.Luminosite)
     w.PPluviometrie ["text"]  ="{:.0f} ".format(PMes.Pluviometrie)
     w.PStation      ["text"]  ="{:.0f} ".format(PMes.Station)
+    # w.PeakVitesse      ["text"]  ="{:.0f} ".format(PMes.PeakVitesse)
+
     #
     # create the "clamp" function to constraint data into limits
     #

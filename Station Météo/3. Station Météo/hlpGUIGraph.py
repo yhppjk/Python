@@ -51,10 +51,29 @@ def PeakDetect(Values, Delta):
     pass
 
 class PeakPlot:
+
     def __init__(self, root, canvas, nbpoints):
-        pass
+        self.nbpoints : int   = nbpoints
+        self.historic : float = []
+
+        fig = Figure(dpi=100)
+        fig.set_tight_layout({"pad" : 1})
+        self.subplot = fig.add_subplot()
+
+        self.canvas = FigureCanvasTkAgg(fig, master=root)
+        self.canvas.get_tk_widget().place(in_=canvas, relwidth=1, relheight=1)
 
     def Plot(self, t:datetime, v:float, d:str):
+
+        if len(self.historic) >= self.nbpoints:
+            self.historic.pop(0)
+        self.historic.append(v)
+
+        self.subplot.clear()
+        self.subplot.plot(self.historic)
+        self.subplot.set(ylabel="km/s", autoscalex_on=False, xlim=(0, self.nbpoints), autoscaley_on=False, ylim=(0,50))
+        self.canvas.draw()
+
         pass
 
 #-----------------------------------------------------------------------------------------------------------------------
