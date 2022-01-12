@@ -39,6 +39,8 @@ class DataMeasure:
         self.EMes.HumidimetreAY = [0.0] * self.NbSamples
         for i in range(0, len(self.EMes.HumidimetreAX)): self.EMes.HumidimetreAX[i] = (self.SampleTime * i) * 1000
 
+
+
     #-------------------------------------------------------------------------------------------------------------------
     def RegError(self, e : nidaqmx.DaqError):
         import inspect
