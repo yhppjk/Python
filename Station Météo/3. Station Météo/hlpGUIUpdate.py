@@ -2,6 +2,7 @@
 # Weather Station Project - hlpGUIUpdate - Helper for updating GUI content                                      JYC-2021
 #-----------------------------------------------------------------------------------------------------------------------
 
+import datetime
 from hlpGUIGraph import ChartPlot, GraphPlot, PeakPlot
 
 GraphHumidite  : GraphPlot = None
@@ -40,10 +41,11 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
     # w.EP1_2["bg"] =
     # w.EP1_3["bg"] =
 
+    now = datetime.datetime.now()
     GraphHumidite.Plot (EMes.HumidimetreAX, EMes.HumidimetreAY)
     ChartGirouette.Plot(EMes.Girouette)
-    PeakVitesse.Plot(PMes.Vitesse)
-    
+    PeakVitesse.Plot(now,PMes.Vitesse,PMes.Direction)
+
 
 
 

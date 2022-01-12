@@ -74,6 +74,9 @@ class PeakPlot:
         self.subplot.set(ylabel="km/s", autoscalex_on=False, xlim=(0, self.nbpoints), autoscaley_on=False, ylim=(0,50))
         self.canvas.draw()
 
+        print(t)
+        print(v)
+
         pass
 
 #-----------------------------------------------------------------------------------------------------------------------
