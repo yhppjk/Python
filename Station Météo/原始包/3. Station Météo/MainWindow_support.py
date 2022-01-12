@@ -2,12 +2,14 @@ import tkinter as tk
 import tkinter.ttk as ttk
 
 #-- Custom part ----------------------------------
-GUIBtnReset = False
-GUINum      = 0
+from hlpDataStruct import EMes, PMes, ErMes
+import hlpGUIUpdate
 
 def GUIDisplay():
-    w.TextNum["text"] = "{0:d}".format(GUINum)
-    root.after(300, GUIDisplay)
+    global root, w, EMes, PMes, ErMes
+
+    hlpGUIUpdate.GUIUpdate(root, w, EMes, PMes, ErMes)
+    root.after(200, GUIDisplay)     # run everty 200ms
 
 def GUIStart():
     import MainWindow
@@ -21,13 +23,9 @@ def init(top, gui, *args, **kwargs):
     root = top
 
     #-- Custom part ------------------------------
+    top.resizable(0, 0)
+    hlpGUIUpdate.GUICenter(top)
     GUIDisplay()
-    #---------------------------------------------
-
-def BtnReset(p1):
-    #-- Custom part ------------------------------
-    global GUIBtnReset
-    GUIBtnReset = True
     #---------------------------------------------
 
 def destroy_window():
