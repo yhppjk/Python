@@ -22,6 +22,7 @@ class ElectricalMeasures:
     DureeMesures  : int   = 0
     TempsBoucleR  : int   = 0
     TempsBoucleL  : int   = 0
+    BtnReset :bool =  False
 
 class PhysicalMeasures:
     Direction    : str = "0"
