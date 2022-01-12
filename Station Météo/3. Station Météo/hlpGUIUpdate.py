@@ -8,6 +8,8 @@ from hlpGUIGraph import ChartPlot, GraphPlot, PeakPlot
 GraphHumidite  : GraphPlot = None
 ChartGirouette : ChartPlot = None
 PeakVitesse    : PeakPlot  = None
+valtrue : int=0
+
 
 def GUIUpdate(root, w, EMes, PMes, ErMes):
     global GraphHumidite, ChartGirouette,PeakVitesse
@@ -20,6 +22,13 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
     # ===ToDo===  fullfill PeakPlot class in hlpGUIGraph.py and create PPeakVitesse canvas on GUI
     #
     #if PeakVitesse    == None: PeakVitesse    = PeakPlot (root, w.PPeakVitesse,    100)
+
+
+
+
+    # solve Encodeur
+    EMes.Encodeur
+
 
     # update electrical measures
     w.EHumidimetre  ["text"]  = "{:.0f} Hz".format(EMes.Humidimetre)
@@ -36,10 +45,17 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
     # ===ToDo=== set Encodeur boolean indicators (background color value : light if bit true, dark else)
     #use this model   : x = ValTrue  if (condition)  else ValFalse
     # use named colors : https://matplotlib.org/stable/gallery/color/named_colors.html
-    # w.EP1_0["bg"] =
-    # w.EP1_1["bg"] =
-    # w.EP1_2["bg"] =
-    # w.EP1_3["bg"] =
+
+
+
+
+    w.EP1_0["bg"] = '#FFD700' if EMes.Encodeur & 0b0001 else '#f9f9f9'
+    w.EP1_1["bg"] ='#FFD700' if EMes.Encodeur & 0b0010 else '#f9f9f9'
+    w.EP1_2["bg"] ='#FFD700' if EMes.Encodeur & 0b0100 else '#f9f9f9'
+    w.EP1_3["bg"] ='#FFD700' if EMes.Encodeur & 0b1000 else '#f9f9f9'
+
+
+
 
     now = datetime.datetime.now()
     GraphHumidite.Plot (EMes.HumidimetreAX, EMes.HumidimetreAY)
