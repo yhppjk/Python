@@ -2,6 +2,7 @@
 # Weather Station Project - hlpGUIGraph - Helper for plotting Graph & Chart on GUI                              JYC-2021
 #-----------------------------------------------------------------------------------------------------------------------
 
+from dataclasses import dataclass
 from datetime import datetime
 import time
 
@@ -51,10 +52,10 @@ class ChartPlot:
 #-----------------------------------------------------------------------------------------------------------------------
 # ===ToDo===  fullfill this class
 def PeakDetect(Values):
-    max_y : float = []
+    max_x : int = []
     for i in range(1, len(Values)-2):
         if(Values[i-1] < Values[i] and Values[i+1] < Values[i]):
-                max_y.append(Values[i])
+                max_x.append(i)
     #for i in range(0, len(max_x)-):
     # for i in reversed(range(len(max_x)-2)):
     #     if(max_x[i+1]-max_x[i] == 2 ):
@@ -64,7 +65,7 @@ def PeakDetect(Values):
     #            else:
     #                   #max_x.remove(max_x[i])
     #                   del max_x[i]
-    return max_y
+    return max_x
 
 
 
@@ -82,23 +83,31 @@ class PeakPlot:
         self.canvas.get_tk_widget().place(in_=canvas, relwidth=1, relheight=1)
 
     def Plot(self, t:datetime, v:float, d:str):
-
         if len(self.historic) >= self.nbpoints:
             self.historic.pop(0)
-        self.historic.append(v)
-        position_y = PeakDetect(self.historic)
-        position_x = range(len(position_y))
+        self.historic.append(Pointpeak(t, v, d))
+
+        values = [i.vitesse  for i in self.historic]
+        position_x = PeakDetect(values)
+        position_y = [values[i] for i in position_x]
+
 
         self.subplot.clear()
-        self.subplot.plot(self.historic)
+        self.subplot.plot(values)
         self.subplot.scatter(position_x, position_y, color = 'r', s = 50, marker = 'D', label = 'Peaks')
         self.subplot.set(ylabel="km/s", autoscalex_on=False, xlim=(0, self.nbpoints), autoscaley_on=False, ylim=(0,50))
         self.canvas.draw()
 
         print(t)
         print(v)
+        return
 
-        pass
+@dataclass (frozen = True)
+class Pointpeak:
+    # def __init__(self, time, vitesse, direction):
+        time : datetime
+        vitesse : float
+        direction : str
 
 
 #-----------------------------------------------------------------------------------------------------------------------
