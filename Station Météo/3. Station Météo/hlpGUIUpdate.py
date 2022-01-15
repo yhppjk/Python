@@ -3,6 +3,7 @@
 #-----------------------------------------------------------------------------------------------------------------------
 
 import datetime
+from tkinter.ttk import Progressbar
 from hlpGUIGraph import ChartPlot, GraphPlot, PeakPlot
 
 GraphHumidite  : GraphPlot = None
@@ -84,17 +85,16 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
     #
 
 
-    # w.PBVitesse      ["value"] = clamp(int(PMes.Vitesse),      0, 30)
-    # w.PBTemperature  ["value"] = clamp(int(PMes.Temperature),  0, 50)
-    # w.PBLuminosite   ["value"] = clamp(int(PMes.PLuminosite),  0, 150)
-    # w.PBHumidite     ["value"] = clamp(int(PMes.Humidite),     0, 100)
-    # w.PBPluviometrie ["value"] = clamp(int(PMes.Pluviometrie), 0, 10)
+    w.PBVitesse      ["value"] = clamp(int(PMes.Vitesse),      0, 30)
+    w.PBTemperature  ["value"] = clamp(int(PMes.Temperature),  0, 50)
+    w.PBLuminosite   ["value"] = clamp(int(PMes.Luminosite),  0, 150)
+    w.PBHumidite     ["value"] = clamp(int(PMes.Humidite),     0, 100)
+    w.PBPluviometrie ["value"] = clamp(int(PMes.Pluviometrie), 0, 10)
     #
     # peak_list = PeakVitesse.Plot(datetime.now(), PMes.Vitesse, PMes.Direction)
     #
     # ToDo : - update Label PListeVitesse with peak_list
     #        - save peak_list in text file
-
 
     # update status message
     if not ErMes.ErrorFlag:
@@ -117,3 +117,9 @@ def GUICenter(win):
 
     win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
     win.deiconify()
+
+
+def clamp(value, min, max):
+    i = (100*value)/max
+
+    return i
