@@ -51,11 +51,10 @@ class ChartPlot:
 #-----------------------------------------------------------------------------------------------------------------------
 # ===ToDo===  fullfill this class
 def PeakDetect(Values):
-    max_x : int = []
-    max_y : float = 0
+    max_y : float = []
     for i in range(1, len(Values)-2):
         if(Values[i-1] < Values[i] and Values[i+1] < Values[i]):
-                max_x.append(i)
+                max_y.append(Values[i])
     #for i in range(0, len(max_x)-):
     # for i in reversed(range(len(max_x)-2)):
     #     if(max_x[i+1]-max_x[i] == 2 ):
@@ -65,7 +64,7 @@ def PeakDetect(Values):
     #            else:
     #                   #max_x.remove(max_x[i])
     #                   del max_x[i]
-    return max_x
+    return max_y
 
 
 
@@ -87,9 +86,12 @@ class PeakPlot:
         if len(self.historic) >= self.nbpoints:
             self.historic.pop(0)
         self.historic.append(v)
+        position_y = PeakDetect(self.historic)
+        position_x = range(len(position_y))
 
         self.subplot.clear()
         self.subplot.plot(self.historic)
+        self.subplot.scatter(position_x, position_y, color = 'r', s = 50, marker = 'D', label = 'Peaks')
         self.subplot.set(ylabel="km/s", autoscalex_on=False, xlim=(0, self.nbpoints), autoscaley_on=False, ylim=(0,50))
         self.canvas.draw()
 
