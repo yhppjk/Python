@@ -105,7 +105,7 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
     for i in range(len(peak_list)):
         alist = str(peak_list[i].time)
 
-    file =  open("peak","wt")
+    file =  open("peak.txt","wt")
     for i in range(len(peak_list)):
         if peak_list != None:
              file.write(str(peak_list[i].time))
@@ -117,7 +117,7 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
 
 
     file.close()
-    file2 = open("peak","r")
+    file2 = open("peak.txt","r")
     w.PListeVitesse ["text"] = file2.read()
     file2.close()
 
