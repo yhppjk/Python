@@ -72,10 +72,10 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
     #
     # use "format" function as electrical measures
     w.PDirection    ["text"]  ="{:s} ".format(PMes.Direction)
-    w.PVitesse      ["text"]  ="{:.0f} ".format(PMes.Vitesse)
-    w.PTemperature  ["text"]  ="{:.0f} ".format(PMes.Temperature)
-    w.PHumidite     ["text"]  ="{:.0f} ".format(PMes.Humidite)
-    w.PLuminosite   ["text"]  ="{:.0f} ".format(PMes.Luminosite)
+    w.PVitesse      ["text"]  ="{:.0f} km/h".format(PMes.Vitesse)
+    w.PTemperature  ["text"]  ="{:.0f} °C".format(PMes.Temperature)
+    w.PHumidite     ["text"]  ="{:.0f} %".format(PMes.Humidite)
+    w.PLuminosite   ["text"]  ="{:.0f} k lux".format(PMes.Luminosite)
     w.PPluviometrie ["text"]  ="{:.0f} ".format(PMes.Pluviometrie)
     w.PStation      ["text"]  ="{:.0f} ".format(PMes.Station)
     # w.PeakVitesse      ["text"]  ="{:.0f} ".format(PMes.PeakVitesse)
