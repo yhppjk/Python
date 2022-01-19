@@ -110,7 +110,7 @@ class PeakPlot:
         self.subplot.set(ylabel="km/s", autoscalex_on=False, xlim=(0, self.nbpoints), autoscaley_on=False, ylim=(0,50))
         self.canvas.draw()
 
-        # print(position_x)
+        print("111111",position_x)
 
         return [self.historic[p].output for p in position_x]
 
@@ -121,8 +121,8 @@ class Pointpeak:
         vitesse : float
         direction : str
         def output(self):
-            return str(self.time)
-            # return f'{self.time:%d/%m/%Y %H:%M:%S} - {int(self.vitesse):2d} km/h - {self.direction}'
+            # return str(self.time)
+            return f'{self.time:%d/%m/%Y %H:%M:%S} - {int(self.vitesse):2d} km/h - {self.direction}'
 
 #-----------------------------------------------------------------------------------------------------------------------
 
