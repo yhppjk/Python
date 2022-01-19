@@ -98,17 +98,29 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
     #        - save peak_list in text file
 
 
-    w.PListeVitesse ["text"] =peak_list
+
+
+
+    alist : str = []
     for i in range(len(peak_list)):
         alist = str(peak_list[i].time)
+
+    file =  open("peak","wt")
     for i in range(len(peak_list)):
-        file =  open("peak","a")
         if peak_list != None:
-            if (str(peak_list[i].time) != alist[i]):
-                 file.write(str(peak_list[i].time))
-                 file.write('\r\n')
-                 del peak_list[i]
-        file.close()
+             file.write(str(peak_list[i].time))
+             file.write("   ")
+             file.write(str(int(peak_list[i].vitesse)))
+             file.write("   ")
+             file.write(str(peak_list[i].direction))
+             file.write('\r\n')
+
+
+    file.close()
+    file2 = open("peak","r")
+    w.PListeVitesse ["text"] = file2.read()
+    file2.close()
+
 
 
 
