@@ -91,13 +91,15 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
     w.PBHumidite     ["value"] = clamp(int(PMes.Humidite),     0, 100)
     w.PBPluviometrie ["value"] = clamp(int(PMes.Pluviometrie), 0, 10)
     #
+
     peak_list = PeakVitesse.Plot(now, PMes.Vitesse, PMes.Direction)
     #
     # ToDo : - update Label PListeVitesse with peak_list
     #        - save peak_list in text file
 
 
-    w.PListeVitesse ["text"] ="{:s}".format("aaaaaaaaaaa")
+    w.PListeVitesse ["text"] =peak_list
+    # print(peak_list)
 
 
 
