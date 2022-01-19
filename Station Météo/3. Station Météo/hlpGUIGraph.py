@@ -56,15 +56,17 @@ def PeakDetect(Values):
     for i in range(1, len(Values)-2):
         if(Values[i-1] < Values[i] and Values[i+1] < Values[i]):
                 max_x.append(i)
-    #for i in range(0, len(max_x)-):
-    # for i in reversed(range(len(max_x)-2)):
-    #     if(max_x[i+1]-max_x[i] == 2 ):
-    #            if (Values[i] >= Values[i+1]):
-    #                   #max_x.remove(max_x[i+1])
-    #                   del max_x[i+1]
-    #            else:
-    #                   #max_x.remove(max_x[i])
-    #                   del max_x[i]
+
+    # for i in range(0, len(max_x)-):
+    for i in reversed(range(len(max_x)-2)):
+        if(max_x[i+1]-max_x[i] == 2 ):
+               if (Values[i] >= Values[i+1]):
+                      #max_x.remove(max_x[i+1])
+                      del max_x[i+1]
+               else:
+                      #max_x.remove(max_x[i])
+                      del max_x[i]
+    # return Values
     return max_x
 
 
@@ -98,8 +100,9 @@ class PeakPlot:
         self.subplot.set(ylabel="km/s", autoscalex_on=False, xlim=(0, self.nbpoints), autoscaley_on=False, ylim=(0,50))
         self.canvas.draw()
 
-        print(t)
-        print(v)
+        print(values)
+        # print(position_x)
+
         return
 
 @dataclass (frozen = True)

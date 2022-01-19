@@ -139,22 +139,22 @@ class DataMeasure:
             self.nTask.wait_until_done()
 
             val :int =self.EMes.Encodeur
-            if (val ==0 ): self.EMes.Encodeur=10
-            if (val ==1 ): self.EMes.Encodeur=11
-            if (val ==2 ): self.EMes.Encodeur=13
-            if (val ==3 ): self.EMes.Encodeur=12
-            if (val ==4 ): self.EMes.Encodeur=9
-            if (val ==5 ): self.EMes.Encodeur=8
-            if (val ==6 ): self.EMes.Encodeur=14
-            if (val ==7 ): self.EMes.Encodeur=15
-            if (val ==8 ): self.EMes.Encodeur=5
-            if (val ==9 ): self.EMes.Encodeur=4
-            if (val ==10 ): self.EMes.Encodeur=2
-            if (val ==11 ): self.EMes.Encodeur=3
-            if (val ==12 ): self.EMes.Encodeur=6
-            if (val ==13 ): self.EMes.Encodeur=7
-            if (val ==14 ): self.EMes.Encodeur=1
-            if (val ==15 ): self.EMes.Encodeur=0
+            if (val ==0 ): self.EMes.NewEncodeur=10
+            if (val ==1 ): self.EMes.NewEncodeur=11
+            if (val ==2 ): self.EMes.NewEncodeur=13
+            if (val ==3 ): self.EMes.NewEncodeur=12
+            if (val ==4 ): self.EMes.NewEncodeur=9
+            if (val ==5 ): self.EMes.NewEncodeur=8
+            if (val ==6 ): self.EMes.NewEncodeur=14
+            if (val ==7 ): self.EMes.NewEncodeur=15
+            if (val ==8 ): self.EMes.NewEncodeur=5
+            if (val ==9 ): self.EMes.NewEncodeur=4
+            if (val ==10 ): self.EMes.NewEncodeur=2
+            if (val ==11 ): self.EMes.NewEncodeur=3
+            if (val ==12 ): self.EMes.NewEncodeur=6
+            if (val ==13 ): self.EMes.NewEncodeur=7
+            if (val ==14 ): self.EMes.NewEncodeur=1
+            if (val ==15 ): self.EMes.NewEncodeur=0
 
 
 

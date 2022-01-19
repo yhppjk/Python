@@ -32,7 +32,7 @@ class PhysicalConversions:
 
 
 
-        self.PMes.Station      = EMes.Encodeur  # convert EMes.Encodeur     GrayCode to integer position    (0 to 15)
+        self.PMes.Station      = EMes.NewEncodeur  # convert EMes.Encodeur     GrayCode to integer position    (0 to 15)
         self.PMes.Humidite     = (100-EMes.Humidimetre)*100/75   # convert EMes.Humidimetre  25Hz : 100% / 100Hz : 0%        (constraint in the range 0-100)
         self.PMes.Temperature  = (EMes.Thermometre *100)-273.15  # convert EMes.Thermometre  °C = (Vcapteur x 100) - 273,15
 
