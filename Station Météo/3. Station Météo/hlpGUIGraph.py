@@ -51,22 +51,27 @@ class ChartPlot:
 
 #-----------------------------------------------------------------------------------------------------------------------
 # ===ToDo===  fullfill this class
-def PeakDetect(Values):
+def PeakDetect(Values, delta = 5 ):
     max_x : int = []
-    for i in range(1, len(Values)-2):
-        if(Values[i-1] < Values[i] and Values[i+1] < Values[i]):
-                max_x.append(i)
-
-    # for i in range(0, len(max_x)-):
-    for i in reversed(range(len(max_x)-2)):
-        if(max_x[i+1]-max_x[i] == 2 ):
-               if (Values[i] >= Values[i+1]):
-                      #max_x.remove(max_x[i+1])
-                      del max_x[i+1]
-               else:
-                      #max_x.remove(max_x[i])
-                      del max_x[i]
-    # return Values
+    po_x : int
+    modemax = True
+    max = -9999
+    min = 9999
+    for i in range(len(Values)):
+        if modemax:
+            if Values[i] > max:
+                max = Values[i]
+                po_x = i
+            if Values[i] < max-delta:
+                max_x.append(po_x)
+                max = -9999
+                modemax = False
+        else:
+            if Values[i] < min:
+                min = Values[i]
+            if Values[i] > min+delta:
+                modemax = True
+                min  = 9999
     return max_x
 
 
@@ -100,7 +105,7 @@ class PeakPlot:
         self.subplot.set(ylabel="km/s", autoscalex_on=False, xlim=(0, self.nbpoints), autoscaley_on=False, ylim=(0,50))
         self.canvas.draw()
 
-        print(values)
+        print(position_x)
         # print(position_x)
 
         return
