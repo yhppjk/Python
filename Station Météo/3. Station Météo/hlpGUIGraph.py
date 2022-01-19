@@ -112,7 +112,7 @@ class PeakPlot:
 
         print("111111",position_x)
 
-        return [self.historic[p].output for p in position_x]
+        return [self.historic[p] for p in position_x]
 
 @dataclass (frozen = True)
 class Pointpeak:
@@ -120,9 +120,9 @@ class Pointpeak:
         time : datetime
         vitesse : float
         direction : str
-        def output(self):
-            # return str(self.time)
-            return f'{self.time:%d/%m/%Y %H:%M:%S} - {int(self.vitesse):2d} km/h - {self.direction}'
+        # def output(self):
+        #     # return str(self.time)
+        #     return f'{self.time:%d/%m/%Y %H:%M:%S} - {int(self.vitesse):2d} km/h - {self.direction}'
 
 #-----------------------------------------------------------------------------------------------------------------------
 

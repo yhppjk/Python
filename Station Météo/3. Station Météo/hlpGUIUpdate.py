@@ -99,12 +99,15 @@ def GUIUpdate(root, w, EMes, PMes, ErMes):
 
 
     w.PListeVitesse ["text"] =peak_list
-    for i in reversed(range(0,len(peak_list))):
+    for i in range(len(peak_list)):
+        alist = str(peak_list[i].time)
+    for i in range(len(peak_list)):
         file =  open("peak","a")
         if peak_list != None:
-           file.write(str(peak_list[i]))
-           file.write('\r\n')
-           del peak_list[i]
+            if (str(peak_list[i].time) != alist[i]):
+                 file.write(str(peak_list[i].time))
+                 file.write('\r\n')
+                 del peak_list[i]
         file.close()
 
 
